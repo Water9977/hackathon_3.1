@@ -1,6 +1,0 @@
-sentinel_output/
-__pycache__/
-*.joblib
-*.png
-.env
-.ipynb_checkpoints/
