@@ -1,75 +1,61 @@
 # 🛰️ EcoEngine AI — Hackathon 3.1
 
-**EcoEngine AI** is a professional geospatial ecological analysis platform. It leverages satellite imagery from Microsoft's Planetary Computer to assess environmental health, predict climate risk, and monitor carbon stocks in real-time.
+EcoEngine AI is a high-performance geospatial analysis tool designed to assess ecological health and predict climate-driven stress. It uses real-time satellite data from Microsoft's Planetary Computer to generate a comprehensive **Ecological Stress Index (CESI)** and uses Machine Learning to simulate future environmental risk.
 
 ---
 
-## 🚀 Features
+## 🚀 Key Features
 
-### 📍 1. Dynamic Regional Analysis
-Unlike standard tools with fixed coordinates, EcoEngine allows you to search for **any location** (e.g., "Amazon Rainforest", "Dehradun", "Kyoto"). It automatically geocodes the area and fetches relevant satellite data.
-
-### 🌳 2. Advanced Carbon Stock Pipeline
-We use a high-fidelity data pipeline combining **Chloris Biomass** (aboveground) and **HGB Harmonized Global Biomass** (above + belowground) to calculate accurate carbon density for any region.
-
-### 🧠 3. regional AI Training (Random Forest)
-The engine doesn't just use formulas; it trains a **RandomForestRegressor** specifically on the unique ecological fingerprint of your chosen region.
-- **Feature Importance:** Identifies if Heat, Water, or Devegetation is the primary stress driver.
-- **Regional Learning:** Adapts to different biomes (Deserts vs. Rainforests).
-
-### 🌡️ 4. AI Climate Simulation (+2°C Warming)
-A predictive module that simulates a global warming scenario.
-- Uses the trained AI model to project how ecological stress will increase if the local temperature rises by 2°C.
-- Generates side-by-side comparison heatmaps of current vs. projected risk.
+- **🌍 Dynamic Location Search:** Never hardcode coordinates again. Type any city or region (e.g., "Munnar", "Amazon Rainforest", "Dehradun") and the AI will find it.
+- **🌱 Advanced Carbon Pipeline:** Fixed and optimized carbon stock assessment using the **HGB (Harmonized Global Biomass)** and **Chloris Biomass** datasets.
+- **🧠 Regional AI Training:** Automatically trains a **Random Forest** model on local environmental data to learn unique regional stressors.
+- **🌡️ Climate Simulation:** Predictive AI modeling that simulates a **+2°C warming scenario** to visualize future ecological risk zones.
+- **📊 Comprehensive Eco-Reporting:** Instant reports on Vegetation Health (NDVI), Moisture Stress (NDWI), Land Surface Temperature (LST), and Terrain Complexity.
 
 ---
 
 ## 🛠️ Installation & Setup
 
-### 1. Prerequisites
+### 1. Requirements
 Make sure you have Python 3.9+ installed.
 
 ### 2. Install Dependencies
-Run the following command to install all necessary geospatial and AI libraries:
-
+Run these commands in your terminal one by one:
 ```bash
-pip install pystac-client planetary-computer odc-stac numpy matplotlib scikit-learn joblib pandas requests xarray
+pip install pystac-client planetary-computer odc-stac xarray numpy matplotlib scikit-learn joblib requests pandas
 ```
+
+*Note: `requests` and `pandas` are required for the new dynamic location and data handling features.*
 
 ---
 
-## 📑 How to Use
+## 📖 How to Use
 
-1. **Run the Script:**
+1. **Run the Engine:**
    ```bash
    python main.py
    ```
+
 2. **Enter Location:**
-   When prompted, type the name of the city or region you want to analyze.
+   When prompted, type the name of the area you want to analyze.
+   > *Example: Enter a city or region: Nainital*
+
 3. **View Results:**
-   - **Terminal:** Check for the "ECOLOGICAL AI REPORT" which includes Vegetation, Moisture, Thermal, and Carbon stats.
-   - **AI Insight:** Look for the "TOP STRESS DRIVERS" to see what is hurting the local environment most.
-   - **Visuals:** Open the `sentinel_output` folder to find your generated Stress Heatmaps and AI Predictions.
+   - **Terminal:** Check the console for the "ECOLOGICAL AI REPORT" and "TOP STRESS DRIVERS".
+   - **Visuals:** Open the `sentinel_output` folder to see the generated `AI_PREDICTION_...png` maps.
+   - **Models:** The regional AI model is saved as a `.joblib` file in the same folder.
 
 ---
 
-## 📊 Key Metrics Explained
-
-| Metric | Description |
-|---|---|
-| **NDVI** | Vegetation health index (Greenness). |
-| **NDWI** | Moisture/Water stress index. |
-| **LST** | Land Surface Temperature (in Celsius). |
-| **CESI** | Composite Ecological Stress Index (The "Heartbeat" of the ecosystem). |
-| **Carbon Stock** | Total biomass carbon stored in the area (MgC/ha). |
+## 📡 Data Sources
+Powered by **Microsoft Planetary Computer**:
+- **Sentinel-2 L2A:** Surface Reflectance & Indices
+- **Landsat-C2-L2:** Thermal Infrared (LST)
+- **HGB:** Harmonized Global Biomass (Carbon Stock)
+- **Copernicus DEM:** Elevation & Slope
+- **ESA WorldCover:** Land Classification
 
 ---
 
-## 🏗️ Tech Stack
-- **Data Source:** Microsoft Planetary Computer (Sentinel-2, Landsat, ESA WorldCover).
-- **AI Engine:** Scikit-Learn (Random Forest).
-- **Geocoding:** OpenStreetMap (Nominatim).
-- **Processing:** ODC-STAC, XArray, NumPy.
-
----
-*Created for Hackathon 3.1*
+## ⚖️ License
+This project is part of Hackathon 3.1. Feel free to fork and build upon it!
